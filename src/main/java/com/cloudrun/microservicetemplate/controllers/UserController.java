@@ -20,8 +20,14 @@ public class UserController {
 
     @PostMapping
     public User createUser(@RequestBody User user) {
+        // TODO: hash password
+        user.setPassword(user.getPassword());
         System.out.println("Creating user: " + user);
         return userRepository.save(user);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable int id) {
+        userRepository.deleteById(id);
+    }
 }
