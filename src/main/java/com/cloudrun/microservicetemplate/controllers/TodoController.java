@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/todos")
 public class TodoController {
     private final TodoRepository todoRepository;
