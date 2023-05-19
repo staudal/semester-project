@@ -9,6 +9,6 @@ public class MicroserviceController {
 
   @GetMapping("/")
   public @ResponseBody String index() {
-    return "Hello Jakob!";
+    return "Welcome to this todo app!";
   }
 }
