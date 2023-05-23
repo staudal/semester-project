@@ -6,6 +6,7 @@ import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 @RestController
@@ -20,7 +21,15 @@ public class TodoController {
 
     @GetMapping("/all")
     public Iterable<Todo> findAll() {
-        return todoRepository.findAll();
+        Iterable<Todo> todos = todoRepository.findAll();
+        ArrayList<Todo> reversed = new ArrayList<>();
+
+        // reversing the order of the todos
+        for (Todo todo : todos) {
+            reversed.add(0, todo);
+        }
+        
+        return reversed;
     }
 
     @PostMapping("/new")
