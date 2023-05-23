@@ -28,7 +28,7 @@ public class TodoController {
         for (Todo todo : todos) {
             reversed.add(0, todo);
         }
-        
+
         return reversed;
     }
 
@@ -70,5 +70,10 @@ public class TodoController {
         }
 
         return todoRepository.save(toUpdate);
+    }
+
+    @DeleteMapping("/delete/all")
+    public void deleteAll() {
+        todoRepository.deleteAll();
     }
 }
